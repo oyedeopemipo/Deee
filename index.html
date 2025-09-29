@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love, Damisioluwa ❤️</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+      color: #fff;
+      overflow: hidden;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      max-width: 400px;
+      z-index: 2;
+      position: relative;
+      animation: fadeIn 1.5s ease;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 25px;
+      background: #ff6f91;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ff477e;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0) scale(1); opacity: 1; }
+      to { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+    #secret {
+      display: none;
+      margin-top: 15px;
+      font-size: 1.3em;
+      color: #ffe5ec;
+    }
+    input {
+      margin-top: 15px;
+      padding: 8px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Happy 6 Months, My Dee 💕</h1>
+    <p id="message">Click below for a love note 💌</p>
+    <button onclick="newMessage()">Show Love</button>
+    
+    <div style="margin-top:20px;">
+      <p>Enter our anniversary date (YYYY-MM-DD):</p>
+      <input type="text" id="anniversary" placeholder="e.g. 2025-09-29">
+      <button onclick="checkSecret()">Unlock ❤️</button>
+      <p id="secret">💖 Damisioluwa, you are my forever, my best friend, my Dee. 💖</p>
+    </div>
+  </div>
+
+  <!-- Background music -->
+  <audio autoplay loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    const messages = [
+      "Dee, I’m so grateful for these 6 months with you 💖",
+      "Every day with you, Damisioluwa, is my favorite day 🌸",
+      "You make my world brighter, Dee ✨",
+      "Here’s to many more months (and years!) with you, my love 🥂",
+      "Dee, you’re my best decision ever 💕",
+      "My heart beats happiest with you, Damisioluwa 💓"
+    ];
+
+    function newMessage() {
+      const randomIndex = Math.floor(Math.random() * messages.length);
+      document.getElementById("message").innerText = messages[randomIndex];
+    }
+
+    function checkSecret() {
+      const input = document.getElementById("anniversary").value.trim();
+      const correctDate = "2025-09-29"; // your real anniversary date ❤️
+      if (input === correctDate) {
+        document.getElementById("secret").style.display = "block";
+      } else {
+        alert("Not quite, try again Dee! 💌");
+      }
+    }
+
+    // floating hearts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 3) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
